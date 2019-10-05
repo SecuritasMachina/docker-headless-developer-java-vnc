@@ -1,0 +1,22 @@
+# Install Development TOols
+FROM ackdev/secure_java_developer_desktop-base-1:2019-05-07-r1
+LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
+MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
+
+
+ADD src/template/homeDir $HOME/
+ADD src/template/homeDir/.gitconfig $HOME/.gitconfig
+ADD src/template/homeDir/.scripts $HOME/.scripts
+ADD src/template/homeDir/.dockerDevTools $HOME/.dockerDevTools
+ADD src/template/homeDir/.NPD $HOME/.NPD
+ADD src/template/homeDir/bin $HOME/bin
+ADD src/template/homeDir/.npmrc $HOME/.npmrc
+ADD src/template/homeDir/.node $HOME/.node
+
+###Set Home dir Permissions
+RUN $INST_SCRIPTS/applyHomePermissions.sh
+
+RUN $INST_SCRIPTS/developerTools_Eclipse.sh &&\
+	$INST_SCRIPTS/developerTools_Tomcatv8.x.sh &&\
+	$INST_SCRIPTS/developerTools_MySQLv8.x.sh
+

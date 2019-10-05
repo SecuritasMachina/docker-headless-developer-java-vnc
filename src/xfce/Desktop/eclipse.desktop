@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse
+Exec=apps/eclipse/eclipse
+Icon=/home/superstar/apps/eclipse/icon.xpm
+Terminal=false
+StartupNotify=false

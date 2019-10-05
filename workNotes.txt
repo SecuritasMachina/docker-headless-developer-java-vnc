@@ -1,0 +1,62 @@
+Created dir under home with group 1000
+ docker run -it  -v /home/jaxtrx/DockerVolume/homes/container1:/home/superstar/hostVolume 3d8ff20b5c98
+
+ 
+#TODO
+redo repository
+read up on gitflow - commit to dev branch, merge to master
+branch on version/feature
+publish to docker
+
+!!persist user home dir!!
+
+change website phone #, do dearches/get new #?
+
+TODO setup company proxy
+
+
+#bin/mysql_ssl_rsa_setup
+Configure SSH for vnc
+add message to bashrc where to put files.
+
+create volume
+during build, download & verify
+during first logon, extract to volume 
+future add option to load dev data into mysql ?
+
+
+#working mount:
+docker run -it  -v /home/jaxtrx/DockerVolume/homes/container1:/home/superstar/hostVolume bfa1e2b53435
+
+Creating volume to custom mount :
+  
+https://github.com/CWSpear/local-persist
+
+http://2016.eicar.org/85-0-Download.html
+
+docker volume create datavolume
+docker volume create datavolume
+docker volume create /home/jaxtrx/DockerVolume
+
+   30  docker run -it -v datavolume:/home/superstar/hostVolume b442f13882c7
+   31  apt-get install locate
+   32  updatedb &
+   33  locate datavolume
+   34  ls -lah /var/lib/docker/volumes/datavolume
+   35  chmod -R ug+rw /var/lib/docker/volumes/datavolume
+   36  ls -lah /var/lib/docker/volumes/datavolume
+   37  docker run -it -v datavolume:/home/superstar/hostVolume b442f13882c7
+   38  chmod -R a+rw /var/lib/docker/volumes/datavolume
+   39  docker run -it -v datavolume:/home/superstar/hostVolume b442f13882c7
+   40  history
+   
+   
+-v datavolume:/home/superstar/hostVolume 
+
+dgoss edit -cap-add=NET_ADMIN -it -v ~/DockerVolume:/home/superstar/hostVolume 4bad35c46443
+dgoss run --cap-add=NET_ADMIN -it -v ~/DockerVolume:/home/superstar/hostVolume 4bad35c46443
+
+docker run --cap-add=NET_ADMIN -it -e VNC_RESOLUTION=1800x900 -v ~/DockerVolume:/home/superstar/hostVolume secure_java_developer_desktop:2019-04-25_19.54.13 
+
+chmod o-rwx ~/DockerVolume
+chmod ug+rxw ~/DockerVolume

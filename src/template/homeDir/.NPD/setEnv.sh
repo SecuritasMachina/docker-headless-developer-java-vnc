@@ -1,0 +1,1 @@
+export coldStorageEncryptKey="TODO"

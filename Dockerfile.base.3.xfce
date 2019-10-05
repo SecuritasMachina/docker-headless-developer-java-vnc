@@ -1,0 +1,20 @@
+# Headless Secure Ubuntu VNC Container with xfce window manager, OpenJDK 8, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox
+FROM ackdev/secure_java_developer_desktop-base-devtools:2019-05-07-r1
+
+LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
+MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
+
+### Install custom fonts
+RUN $INST_SCRIPTS/install_custom_fonts.sh
+
+### Install xvnc-server & noVNC - HTML5 based VNC viewer
+#TODO Evaluate security around web version 
+RUN $INST_SCRIPTS/tigervnc.sh
+RUN $INST_SCRIPTS/no_vnc.sh
+
+### Install Firefox & Chromium browsers
+#Unix.Trojan.Mirai-5932143-0 FOUND RUN $INST_SCRIPTS/chrome.sh
+
+### Install xfce UI
+RUN $INST_SCRIPTS/xfce_ui.sh
+ADD ./src/xfce/ $HOME/

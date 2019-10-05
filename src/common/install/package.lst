@@ -1,0 +1,63 @@
+##JDK
+openjdk-8-jdk-headless
+#Security related
+clamav
+clamav-daemon
+clamtk
+ufw
+acl
+#Disabled squid-deb-proxy
+sudo
+##Common
+dirmngr
+vim
+unzip
+nano
+parallel
+wget
+locales
+bzip2
+locate
+libnss-wrapper 
+gettext
+##Mysql
+libaio1 
+libaio-dev
+numactl
+mysql-workbench
+##For ClamAV scan script: kdialog inotify-tools 
+inotify-tools
+##Dev tools
+gradle
+maven
+telnet
+curl
+#used for websockify/novnc
+python-numpy
+##Source control
+mercurial
+subversion
+git
+cvs
+##Browser
+#epiphany-browser
+firefox
+#Chrome
+chromium-browser
+chromium-browser-l10n
+chromium-codecs-ffmpeg
+##Fonts
+ttf-wqy-zenhei
+##NPM
+npm
+#Hardening
+debsums
+lynis
+aide
+unattended-upgrades
+#Utilities
+file-roller
+rsync
+desktop-file-utils
+mime-support
+

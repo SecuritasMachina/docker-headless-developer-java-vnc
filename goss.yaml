@@ -1,0 +1,59 @@
+file:
+  /home/hostVolume:
+    exists: true
+    mode: "0775"
+    size: 4096
+    owner: superstar
+    group: superstar
+    filetype: directory
+    contains: []
+  /home/superstar/.bashrc:
+    exists: true
+    mode: "0660"
+    size: 2191
+    owner: superstar
+    group: superstar
+    filetype: file
+    contains: []
+  /home/superstar/.dockerDevTools/archives/eclipse-jee-2019-03-R-linux-gtk-x86_64.tar.gz:
+    exists: true
+    mode: "0660"
+    size: 351457868
+    owner: superstar
+    group: superstar
+    filetype: file
+    contains: []
+  /home/superstar/bin/eclipse.sh:
+    exists: true
+    mode: "0770"
+    size: 125
+    owner: superstar
+    group: superstar
+    filetype: file
+    contains: []
+  /home/superstar/.dockerDevTools/archives/apache-tomcat-8.5.40.tar.gz:
+    exists: true
+    mode: "0660"
+    size: 9690027
+    owner: superstar
+    group: superstar
+    filetype: file
+    contains: []
+  /home/superstar/.dockerDevTools/archives/mysql-8.0.15-linux-glibc2.12-x86_64.tar.xz:
+    exists: true
+    mode: "0660"
+    size: 376303592
+    owner: superstar
+    group: superstar
+    filetype: file
+    contains: []
+user:
+  superstar:
+    exists: true
+    uid: 1500
+    groups:
+      consist-of: ["adm","clamav", "sudo", "superstar"]    
+  clamav:
+    exists: true
+    groups:
+      consist-of: ["clamav"]    

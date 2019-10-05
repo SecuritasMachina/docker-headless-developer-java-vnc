@@ -1,0 +1,90 @@
+# Headless Secure Ubuntu base Container
+FROM ubuntu:18.04
+LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
+MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
+
+LABEL io.k8s.description="Headless VNC Container with xfce window manager, OpenJDK 8, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox" \
+      io.k8s.display-name="Headless Enterprise Developer VNC Container based on xfce" \
+      io.openshift.expose-services="6901:http,5901:xvnc" \
+      io.openshift.tags="vnc, xfce" \
+      io.openshift.non-scalable=true
+
+###Command line arguments
+#Developer tools:
+ARG TOMCAT_FLAVOR=apache-tomcat-8.5.40
+ARG MYSQL_FLAVOR=mysql-8.0.15
+ARG ECLIPSE_FLAVOR=eclipse-jee-2019-03-R-linux-gtk-x86_64
+ARG GRADLE_FLAVOR=gradle-5.0
+ARG USER_PASSWORD=RANDOM_USER_PASSWORD
+#User to create in container
+ARG CONTAINER_USER=superstar
+
+#Host path to where user data persistance will occur
+#Note, do not include $HOME, it will be prepended in client container setup scripts
+ARG CONTAINER_DIR_NAME=hostVolume
+
+ENV USER_PASSWORD $USER_PASSWORD
+
+ENV HOME /home/${CONTAINER_USER}
+ENV GRADLE_FLAVOR $GRADLE_FLAVOR
+ENV TOMCAT_FLAVOR $TOMCAT_FLAVOR
+ENV MYSQL_FLAVOR $MYSQL_FLAVOR
+ENV CONTAINER_USER $CONTAINER_USER
+ENV CONTAINER_DIR_NAME $CONTAINER_DIR_NAME
+ENV ECLIPSE_FLAVOR $ECLIPSE_FLAVOR
+
+# Define working directory.
+WORKDIR /home/${CONTAINER_USER}
+
+## Connection ports for controlling the UI:
+# VNC port:5901
+# noVNC webport, connect via http://IP:6901/?password=vncpassword
+
+ENV DISPLAY=:1 \
+    VNC_PORT=5901 \
+    NO_VNC_PORT=6901
+    
+EXPOSE $VNC_PORT $NO_VNC_PORT
+
+### Environment config
+ENV TERM=xterm \
+	SHELL=/bin/bash\
+    STARTUPDIR=/dockerstartup \
+    INST_SCRIPTS=/headless/install \
+    NO_VNC_HOME=/headless/noVNC \
+    DEBIAN_FRONTEND=noninteractive \
+    VNC_COL_DEPTH=24 \
+    VNC_RESOLUTION=1280x1024 \
+    VNC_VIEW_ONLY=false
+
+
+WORKDIR $HOME
+
+### Add all install scripts for further steps
+ADD ./src/common/helpers/ $INST_SCRIPTS/
+ADD ./src/common/install/ $INST_SCRIPTS/
+ADD ./src/common/gnome/ $INST_SCRIPTS/
+ADD ./src/ubuntu/install/ $INST_SCRIPTS/
+ADD ./src/xfce/install/ $INST_SCRIPTS/
+ADD ./src/common/configure/ $INST_SCRIPTS/
+
+#Apply execute permissions to installs scripts
+RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
+
+### Initialize build environment
+RUN $INST_SCRIPTS/initEnvironment.sh
+
+###Setup logons etc
+RUN $INST_SCRIPTS/configureCredentials.sh
+
+### Define localization
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+RUN export LC_ALL=en_US.UTF-8 &&\
+	export LANG=en_US.UTF-8
+
+#Add root only commands
+#ADD src/template/bin /bin
+
+### Install some common tools
+RUN $INST_SCRIPTS/commonTools.sh
+
