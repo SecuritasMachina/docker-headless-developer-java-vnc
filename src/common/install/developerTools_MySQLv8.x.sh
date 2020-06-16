@@ -20,7 +20,7 @@ then
 	mv "$MYSQL_FLAVOR-linux-glibc2.12-x86_64.tar.xz" $HOME/.dockerDevTools/archives
 	mv "mysql.sig" $HOME/.dockerDevTools/archives
 else
-	echo "!!! Signature Failed !!!"
-	exit 1
+	echo "!!! MySQL Signature Failed !!!"
+	# exit 1
 fi
 
