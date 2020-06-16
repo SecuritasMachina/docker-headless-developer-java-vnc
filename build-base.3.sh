@@ -7,7 +7,7 @@ host_ip_cmd=($(echo $(hostname -I) | tr ' ' '\n'))
 proxy_ip="${host_ip_cmd[0]}"
 proxy_port="3128"
 # Replace Proxy with company proxy:
-proxy="http://$proxy_ip:$proxy_port"
+#proxy="http://$proxy_ip:$proxy_port"
 echo "Using proxy: $proxy"
 echo "Log Dir: $log_dir"
 
