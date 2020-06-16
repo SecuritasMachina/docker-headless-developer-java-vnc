@@ -1,7 +1,7 @@
-current_timestamp=$(date +%Y-%m-%d_%H.%M)
-log_dir="$HOME/logs/docker/$current_timestamp"
-mkdir -p $log_dir
-echo "Build logs at $log_dir" 
+#current_timestamp=$(date +%Y-%m-%d_%H.%M)
+#log_dir="$HOME/logs/docker/$current_timestamp"
+#mkdir -p $log_dir
+#echo "Build logs at $log_dir" 
 
 sudo apt-get update -y
 sudo apt-get upgrade -y 2>&1 | tee "$log_dir/apt-upgrade.out"
@@ -26,8 +26,8 @@ else
 	dgoss run --cap-add=NET_ADMIN -it -v ~/DockerVolumes/developer-desktop:/home/hostVolume ackdev/secure_java_developer_desktop:$current_timestamp >$log_dir/dgoss.out
 	cat $log_dir/dgoss.out
 	echo "If no virus and unit tests pass push via:"
-	echo "docker push ackdev/secure_java_developer_desktop-base-1:2019-05-07-r1"
-	echo "docker push ackdev/secure_java_developer_desktop-base-devtools:2019-05-07-r1"
-	echo "docker push ackdev/secure_java_developer_desktop-base-xfce:2019-05-07-r1"
+	echo "docker push ackdev/secure_java_developer_desktop-base-1:$dVersion"
+	echo "docker push ackdev/secure_java_developer_desktop-base-devtools:$dVersion"
+	echo "docker push ackdev/secure_java_developer_desktop-base-xfce:$dVersion"
 	echo "docker push ackdev/secure_java_developer_desktop:$current_timestamp"
 fi

@@ -11,7 +11,8 @@ LABEL io.k8s.description="Headless VNC Container with xfce window manager, OpenJ
 
 ###Command line arguments
 #Developer tools:
-ARG TOMCAT_FLAVOR=apache-tomcat-8.5.40
+ARG TOMCAT_DOWNLOAD=https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/
+ARG TOMCAT_FLAVOR=apache-tomcat-9.0.36
 ARG MYSQL_FLAVOR=mysql-8.0.15
 ARG ECLIPSE_FLAVOR=eclipse-jee-2019-03-R-linux-gtk-x86_64
 ARG GRADLE_FLAVOR=gradle-5.0
@@ -27,6 +28,7 @@ ENV USER_PASSWORD $USER_PASSWORD
 
 ENV HOME /home/${CONTAINER_USER}
 ENV GRADLE_FLAVOR $GRADLE_FLAVOR
+ENV TOMCAT_DOWNLOAD $TOMCAT_DOWNLOAD
 ENV TOMCAT_FLAVOR $TOMCAT_FLAVOR
 ENV MYSQL_FLAVOR $MYSQL_FLAVOR
 ENV CONTAINER_USER $CONTAINER_USER

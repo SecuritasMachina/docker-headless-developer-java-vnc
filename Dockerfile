@@ -1,5 +1,5 @@
 # Headless Ubuntu VNC Container with xfce window manager, OpenJDK 8, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox
-FROM ackdev/secure_java_developer_desktop-base-xfce:2019-05-07-r1
+FROM ackdev/secure_java_developer_desktop-base-xfce:2020-06-16-r1
 
 LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
 MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
