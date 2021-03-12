@@ -1,6 +1,6 @@
 Docker build container image for Headless Java Developer using VNC session
 
-[Hosting and usage tips](https://github.com/ackdev/docker-headless-developer-java-vnc/wiki) | [Releases](https://github.com/ackdev/docker-headless-developer-java-vnc/releases)
+[Hosting and usage tips](https://github.com/ackdev/secure_java_developer_desktop/wiki) | [Releases](https://github.com/ackdev/secure_java_developer_desktop/releases)
 
 Each Docker image is installed with the following components:
 
@@ -36,7 +36,7 @@ Each Docker image is installed with the following components:
 * Restricted developer rights, sudo password in only available in build log 
 * Active virus, malware & bytecode directory scanning using ClamAV: ~/Downloads, Maven's .m2 and Gradle's .gradle
 * Daily ClamAV database updates
-* Must use a proxy, here's a [whitelist](https://github.com/ackdev/docker-headless-developer-java-vnc/blob/master/src/sample/20-whitelist) which may be used as a starting point.
+* Must use a proxy, here's a [whitelist](https://github.com/ackdev/secure_java_developer_desktop/blob/master/src/sample/20-whitelist) which may be used as a starting point.
 
 ### Persistance
 * User's home directory is persisted  
@@ -47,7 +47,7 @@ Each Docker image is installed with the following components:
 
 
 ## Usage
-Usage is **similar** for all provided images, e.g. for `ackdev/docker-headless-developer-java-vnc`:
+Usage is **similar** for all provided images, e.g. for `ackdev/secure_java_developer_desktop`:
 
 ```
 proxy="http://$proxy_ip:$proxy_port"
@@ -56,23 +56,23 @@ docker run --cap-add=NET_ADMIN -it -e VNC_RESOLUTION=1800x900 -e HTTP_PROXY="$pr
 
 - Print out help page:
 
-      docker run ackdev/docker-headless-developer-java-vnc:latest --help
+      docker run ackdev/secure_java_developer_desktop:latest --help
 
 - Run command with mapping to local port `5901` (vnc protocol) and `6901` (vnc web access):
 
-      docker run -d -p 5901:5901 -p 6901:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc:latest
+      docker run -d -p 5901:5901 -p 6901:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop:latest
   
 - Change the default user and group within a container to your own with adding `--user $(id -u):$(id -g)`:
 
-      docker run -d -p 5901:5901 -p 6901:6901 --user $(id -u):$(id -g) -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc:latest
+      docker run -d -p 5901:5901 -p 6901:6901 --user $(id -u):$(id -g) -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop:latest
 
 - If you want to get into the container use interactive mode `-it` and `bash`
       
-      docker run -it -p 5901:5901 -p 6901:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc:latest bash
+      docker run -it -p 5901:5901 -p 6901:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop:latest bash
 
 - Build an image from scratch:
-      git clone https://github.com/ackdev/docker-headless-developer-java-vnc
-      cd docker-headless-developer-java-vnc  
+      git clone https://github.com/ackdev/secure_java_developer_desktop
+      cd secure_java_developer_desktop  
       docker build .  
 
 # Connect & Control
@@ -90,7 +90,7 @@ Since version `1.0.0` all images run as non-root user per default, so if you wan
 
 ```bash
 ## Custom Dockerfile
-FROM ackdev/docker-headless-developer-java-vnc
+FROM ackdev/secure_java_developer_desktop
 ENV REFRESHED_AT 2019-03-18
 
 # Switch to root user to install additional software
@@ -111,12 +111,12 @@ Per default, since version `1.0.0` all container processes will be executed with
 #### 2.1) Using root (user id `0`)
 Add the `--user` flag to your docker run command:
 
-    docker run -it --user 0 -p 6911:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
+    docker run -it --user 0 -p 6911:6901 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop
 
 #### 2.2) Using user and group id of host system
 Add the `--user` flag to your docker run command:
 
-    docker run -it -p 6911:6901 --user $(id -u):$(id -g) -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
+    docker run -it -p 6911:6901 --user $(id -u):$(id -g) -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop
 
 ### 3) Override VNC environment variables
 The following VNC environment variables may be overwritten at the `docker run` phase to customize your desktop environment inside the container:
@@ -127,24 +127,24 @@ The following VNC environment variables may be overwritten at the `docker run` p
 Simply overwrite the value of the environment variable `VNC_RESOLUTION`. For example in
 the docker run command:
 
-    docker run -it -p 5901:5901 -p 6901:6901 -e VNC_RESOLUTION=800x600 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
+    docker run -it -p 5901:5901 -p 6901:6901 -e VNC_RESOLUTION=800x600 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop
     
 ### 4) View only VNC
 Since version `1.0.0` it's possible to prevent unwanted control via VNC. Therefore you may set the environment variable `VNC_VIEW_ONLY=true`. If set, the startup script will create a random password for the control connection and use the value of `VNC_PW` for view only connection over the VNC connection.
 
-     docker run -it -p 5901:5901 -p 6901:6901 -e VNC_VIEW_ONLY=true -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
+     docker run -it -p 5901:5901 -p 6901:6901 -e VNC_VIEW_ONLY=true -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop
 
 ### 5) Known Issues
 
 #### 5.1) Chromium crashes with high VNC_RESOLUTION ([#53](https://github.com/ConSol/docker-headless-vnc-container/issues/53))
 If you open some graphic/work intensive websites in the Docker container (especially with high resolutions e.g. `1920x1080`) Chromium may crash without any specific reason. The problem there is the too small `/dev/shm` size in the container. Currently there is no other way, as define this size on startup via `--shm-size` option, see [#53 - Solution](https://github.com/ConSol/docker-headless-vnc-container/issues/53#issuecomment-347265977):
 
-    docker run --shm-size=256m -it -p 6901:6901 -e VNC_RESOLUTION=1920x1080 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc chromium-browser http://map.norsecorp.com/
+    docker run --shm-size=256m -it -p 6901:6901 -e VNC_RESOLUTION=1920x1080 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop chromium-browser http://map.norsecorp.com/
   
 
 ## Release History
 
-The current change log is provided here: **[Releases](https://github.com/ackdev/docker-headless-developer-java-vnc/releases)**
+The current change log is provided here: **[Releases](https://github.com/ackdev/secure_java_developer_desktop/releases)**
 
 ## Contact
 For questions, professional support or maybe some hints, feel free to contact me via **[charles@ackdev.com](mailto:charles@ackdev.com)** or open an [issue](https://github.com/ConSol/docker-headless-vnc-container/issues/new).  
