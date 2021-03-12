@@ -1,6 +1,4 @@
-Docker container image for Headless Java Developer using VNC session
-
-This repository contains a collection of Docker images with headless VNC environments.
+Docker build container image for Headless Java Developer using VNC session
 
 [Hosting and usage tips](https://github.com/ackdev/docker-headless-developer-java-vnc/wiki) | [Releases](https://github.com/ackdev/docker-headless-developer-java-vnc/releases)
 
