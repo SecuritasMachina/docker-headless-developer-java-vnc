@@ -6,7 +6,7 @@ This repository contains a collection of Docker images with headless VNC environ
 
 Each Docker image is installed with the following components:
 
-* Desktop environment [**xfce** Coming soon **Gnome**]
+* Desktop environment [**xfce**]
 
 * OpenJDK 8.0
 * MySQL 8.0.15
