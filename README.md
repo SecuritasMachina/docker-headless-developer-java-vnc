@@ -10,7 +10,7 @@ Each Docker image is installed with the following components:
 
 * OpenJDK 8.0
 * MySQL 8.0.15
-* Tomcat 8.5.40
+* Tomcat 9.0.44
 * NPM 3.5.x 
 * ClamAV
 * VNC-Server (default VNC port `5901`)
