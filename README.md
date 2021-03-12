@@ -38,7 +38,7 @@ Each Docker image is installed with the following components:
 * Restricted developer rights, sudo password in only available in build log 
 * Active virus, malware & bytecode directory scanning using ClamAV: ~/Downloads, Maven's .m2 and Gradle's .gradle
 * Daily ClamAV database updates
-* Must use a proxy, here's a [whitelist](https://github.com/ackdev/docker-headless-developer-java-vnc/blob/master/src/sample/20-whitelist) which can be used as a starting point.
+* Must use a proxy, here's a [whitelist](https://github.com/ackdev/docker-headless-developer-java-vnc/blob/master/src/sample/20-whitelist) which may be used as a starting point.
 
 ### Persistance
 * User's home directory is persisted  
@@ -103,7 +103,7 @@ USER 1500
 
 ### 2) Change User of running Container
 
-Per default, since version `1.0.0` all container processes will be executed with user id `1500`. You can change the user id as follows: 
+Per default, since version `1.0.0` all container processes will be executed with user id `1500`. You may change the user id as follows: 
 
 #### 2.1) Using root (user id `0`)
 Add the `--user` flag to your docker run command:
@@ -116,7 +116,7 @@ Add the `--user` flag to your docker run command:
     docker run -it -p 6911:6901 --user $(id -u):$(id -g) -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
 
 ### 3) Override VNC environment variables
-The following VNC environment variables can be overwritten at the `docker run` phase to customize your desktop environment inside the container:
+The following VNC environment variables may be overwritten at the `docker run` phase to customize your desktop environment inside the container:
 * `VNC_COL_DEPTH`, default: `24`
 * `VNC_RESOLUTION`, default: `1280x1024`
 
@@ -127,14 +127,14 @@ the docker run command:
     docker run -it -p 5901:5901 -p 6901:6901 -e VNC_RESOLUTION=800x600 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
     
 ### 4) View only VNC
-Since version `1.0.0` it's possible to prevent unwanted control via VNC. Therefore you can set the environment variable `VNC_VIEW_ONLY=true`. If set, the startup script will create a random password for the control connection and use the value of `VNC_PW` for view only connection over the VNC connection.
+Since version `1.0.0` it's possible to prevent unwanted control via VNC. Therefore you may set the environment variable `VNC_VIEW_ONLY=true`. If set, the startup script will create a random password for the control connection and use the value of `VNC_PW` for view only connection over the VNC connection.
 
      docker run -it -p 5901:5901 -p 6901:6901 -e VNC_VIEW_ONLY=true -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc
 
 ### 5) Known Issues
 
 #### 5.1) Chromium crashes with high VNC_RESOLUTION ([#53](https://github.com/ConSol/docker-headless-vnc-container/issues/53))
-If you open some graphic/work intensive websites in the Docker container (especially with high resolutions e.g. `1920x1080`) it can happen that Chromium crashes without any specific reason. The problem there is the too small `/dev/shm` size in the container. Currently there is no other way, as define this size on startup via `--shm-size` option, see [#53 - Solution](https://github.com/ConSol/docker-headless-vnc-container/issues/53#issuecomment-347265977):
+If you open some graphic/work intensive websites in the Docker container (especially with high resolutions e.g. `1920x1080`) Chromium may crash without any specific reason. The problem there is the too small `/dev/shm` size in the container. Currently there is no other way, as define this size on startup via `--shm-size` option, see [#53 - Solution](https://github.com/ConSol/docker-headless-vnc-container/issues/53#issuecomment-347265977):
 
     docker run --shm-size=256m -it -p 6901:6901 -e VNC_RESOLUTION=1920x1080 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/containerdatavolume:/home/superstar/hostVolume ackdev/docker-headless-developer-java-vnc chromium-browser http://map.norsecorp.com/
   
@@ -144,13 +144,13 @@ If you open some graphic/work intensive websites in the Docker container (especi
 The current change log is provided here: **[Releases](https://github.com/ackdev/docker-headless-developer-java-vnc/releases)**
 
 ## Contact
-For questions, professional support or maybe some hints, feel free to contact us via **[help@ackdev.com](mailto:help@ackdev.com)** or open an [issue](https://github.com/ConSol/docker-headless-vnc-container/issues/new).  
+For questions, professional support or maybe some hints, feel free to contact me via **[charles@ackdev.com](mailto:charles@ackdev.com)** or open an [issue](https://github.com/ConSol/docker-headless-vnc-container/issues/new).  
 
 For consulting and maintenance agreements, we accept the following forms of payment:  
 * BTC: qr70z6l6fhryhv952gs0klsx5mh3trw9e5t9rgrala
 * ETH: 0x067bAf8A0468b3Fa32088B8A536e58622BC3BB2C
 * LTC: MN3vyozGhMeyjGTA9pZJ1NX8JHXwNrpWXf 
-* Credit card at [Acknowledged Development Inc.](https://ackdev.com)
+
 
 ## Bux for Bugs
 
