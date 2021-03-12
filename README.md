@@ -73,7 +73,7 @@ docker run --cap-add=NET_ADMIN -it -e VNC_RESOLUTION=1800x900 -e HTTP_PROXY="$pr
 - Build an image from scratch:
       git clone https://github.com/ackdev/secure_java_developer_desktop
       cd secure_java_developer_desktop  
-      docker build .  
+      ./buildAll.sh
 
 # Connect & Control
 If the container is started like mentioned above, connect via one of these options:
