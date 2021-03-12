@@ -159,7 +159,7 @@ For consulting and maintenance agreements, we accept the following forms of paym
 
 ## Bux for Bugs
 
-Found a vulnerability?  Let us know and we'll send a reward for your time
+Found a vulnerability?  Let me know and I'll send a reward for your time
 
 ## License
 Apache License 2.0
