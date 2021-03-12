@@ -49,7 +49,9 @@ Each Docker image is installed with the following components:
 ## Usage
 Usage is **similar** for all provided images, e.g. for `ackdev/secure_java_developer_desktop`:
 
+
 ```
+mkdir -p ~/ContainerDataVolume
 proxy="http://$proxy_ip:$proxy_port"
 docker run --cap-add=NET_ADMIN -it -e VNC_RESOLUTION=1800x900 -e HTTP_PROXY="$proxy" -e HTTPS_PROXY="$proxy" -e http_proxy="$proxy" -e https_proxy="$proxy" -v ~/ContainerDataVolume:/home/superstar/hostVolume ackdev/secure_java_developer_desktop:latest
 ```
