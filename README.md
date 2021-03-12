@@ -43,6 +43,11 @@ Each Docker image is installed with the following components:
 ### Persistance
 * User's home directory is persisted  
 
+## Build
+* Setup Docker: https://docs.docker.com/get-started/
+* ./buildAll.sh
+
+
 ## Usage
 Usage is **similar** for all provided images, e.g. for `ackdev/docker-headless-developer-java-vnc`:
 
