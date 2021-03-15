@@ -1,7 +1,5 @@
 Docker build container image for Headless Java Developer using VNC session
 
-[Hosting and usage tips](https://github.com/ackdev/secure_java_developer_desktop/wiki) | [Releases](https://github.com/ackdev/secure_java_developer_desktop/releases)
-
 Each Docker image is installed with the following components:
 
 * Desktop environment [**xfce**]
