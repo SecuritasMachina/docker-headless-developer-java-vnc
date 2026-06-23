@@ -1,0 +1,17 @@
+# Full Java enterprise desktop: Eclipse + Tomcat + MySQL + Java toolchain.
+STACK_NAME=java-enterprise
+DESCRIPTION="Eclipse, OpenJDK 17+21, Maven/Gradle, Tomcat 9, MySQL, Firefox - on Xfce/VNC"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  base/security
+  desktop/xfce
+  desktop/vnc
+  desktop/firefox
+  languages/java
+  tools/build-essential
+  tools/scm
+  servers/tomcat
+  databases/mysql
+  ides/eclipse
+"

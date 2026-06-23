@@ -1,0 +1,15 @@
+# Node.js full-stack desktop: VSCodium + Node + MongoDB + Redis + Docker CLI.
+STACK_NAME=node-fullstack
+DESCRIPTION="Node.js LTS, VSCodium, MongoDB, Redis, Docker CLI, Chrome - on Xfce/VNC"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  desktop/xfce
+  desktop/vnc
+  desktop/chrome
+  languages/node
+  databases/mongodb
+  databases/redis
+  tools/docker-cli
+  ides/vscodium
+"

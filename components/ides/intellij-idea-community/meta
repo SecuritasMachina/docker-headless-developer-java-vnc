@@ -1,0 +1,4 @@
+NAME="IntelliJ IDEA Community"
+CATEGORY=ides
+DESCRIPTION="JetBrains IntelliJ IDEA Community Edition (verified SHA-256 binary)"
+REQUIRES="desktop/xfce languages/java"

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=VSCodium
+GenericName=Text Editor
+Comment=Open-source build of VS Code
+Exec=codium
+Icon=vscodium
+Terminal=false
+StartupNotify=true
+Categories=Development;IDE;

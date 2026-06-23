@@ -1,0 +1,4 @@
+NAME="Docker CLI"
+CATEGORY=tools
+DESCRIPTION="Docker CLI (client only) + compose/buildx plugins from Docker's signed apt repo"
+REQUIRES="base/core"

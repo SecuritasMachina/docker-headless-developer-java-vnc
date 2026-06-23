@@ -1,0 +1,4 @@
+NAME="Redis"
+CATEGORY=databases
+DESCRIPTION="Redis server + CLI tools (not auto-started)"
+REQUIRES="base/core"

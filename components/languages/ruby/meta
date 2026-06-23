@@ -1,0 +1,4 @@
+NAME="Ruby"
+CATEGORY=languages
+DESCRIPTION="Ruby (full) with dev headers, build-essential, and Bundler"
+REQUIRES="base/core"

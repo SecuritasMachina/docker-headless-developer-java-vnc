@@ -1,0 +1,4 @@
+NAME="MySQL"
+CATEGORY=databases
+DESCRIPTION="MySQL server + client (not auto-started)"
+REQUIRES="base/core"

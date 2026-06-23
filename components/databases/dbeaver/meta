@@ -1,0 +1,4 @@
+NAME="DBeaver Community"
+CATEGORY=databases
+DESCRIPTION="DBeaver Community Edition - universal database GUI - via its signed apt repo"
+REQUIRES="desktop/xfce"

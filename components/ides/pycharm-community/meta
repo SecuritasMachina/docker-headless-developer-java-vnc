@@ -1,0 +1,4 @@
+NAME="PyCharm Community"
+CATEGORY=ides
+DESCRIPTION="JetBrains PyCharm Community Edition (verified SHA-256 binary). Pairs well with languages/python."
+REQUIRES="desktop/xfce"

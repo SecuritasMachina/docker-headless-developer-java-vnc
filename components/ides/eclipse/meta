@@ -1,0 +1,4 @@
+NAME="Eclipse IDE"
+CATEGORY=ides
+DESCRIPTION="Eclipse IDE for Enterprise Java and Web Developers (verified SHA-512 binary)"
+REQUIRES="desktop/xfce languages/java"

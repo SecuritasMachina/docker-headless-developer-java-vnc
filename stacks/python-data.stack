@@ -1,0 +1,16 @@
+# Python data/dev desktop: PyCharm + VSCodium + Python + PostgreSQL.
+STACK_NAME=python-data
+DESCRIPTION="Python 3 toolchain, PyCharm CE, VSCodium, PostgreSQL, Firefox - on Xfce/VNC"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  desktop/xfce
+  desktop/vnc
+  desktop/firefox
+  languages/python
+  tools/build-essential
+  databases/postgresql
+  databases/dbeaver
+  ides/pycharm-community
+  ides/vscodium
+"

@@ -1,0 +1,4 @@
+NAME="Google Chrome"
+CATEGORY=desktop
+DESCRIPTION="Google Chrome web browser (from Google's signed APT repo)"
+REQUIRES="desktop/xfce"

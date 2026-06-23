@@ -1,0 +1,4 @@
+NAME="Apache Tomcat"
+CATEGORY=servers
+DESCRIPTION="Apache Tomcat 9 servlet container (verified SHA-512 + GPG), CATALINA_HOME set"
+REQUIRES="base/core languages/java"

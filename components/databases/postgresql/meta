@@ -1,0 +1,4 @@
+NAME="PostgreSQL"
+CATEGORY=databases
+DESCRIPTION="PostgreSQL server + contrib extensions + client (not auto-started)"
+REQUIRES="base/core"

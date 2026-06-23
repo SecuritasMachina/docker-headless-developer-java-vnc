@@ -1,0 +1,14 @@
+# Go cloud-native desktop: Go + Docker CLI + VSCodium.
+STACK_NAME=go-cloud
+DESCRIPTION="Go toolchain, Docker CLI, VSCodium, Redis - on Xfce/VNC"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  desktop/xfce
+  desktop/vnc
+  desktop/firefox
+  languages/go
+  tools/docker-cli
+  databases/redis
+  ides/vscodium
+"

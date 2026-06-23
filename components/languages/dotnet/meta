@@ -1,0 +1,4 @@
+NAME=".NET SDK"
+CATEGORY=languages
+DESCRIPTION=".NET SDK 8.0 (LTS) via Microsoft's signed apt repo"
+REQUIRES="base/core"

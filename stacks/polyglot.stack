@@ -1,0 +1,24 @@
+# Everything-popular polyglot desktop: Java + Node + Python + Go, multiple IDEs.
+STACK_NAME=polyglot
+DESCRIPTION="Java, Node, Python, Go + IntelliJ/VSCodium + PostgreSQL/Redis + Docker - full desktop"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  base/security
+  desktop/xfce
+  desktop/vnc
+  desktop/firefox
+  desktop/chrome
+  languages/java
+  languages/node
+  languages/python
+  languages/go
+  tools/build-essential
+  tools/scm
+  tools/docker-cli
+  databases/postgresql
+  databases/redis
+  databases/dbeaver
+  ides/intellij-idea-community
+  ides/vscodium
+"

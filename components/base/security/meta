@@ -1,0 +1,4 @@
+NAME="Security tooling"
+CATEGORY=base
+DESCRIPTION="ClamAV antivirus (with signature DBs) and Lynis hardening auditing"
+REQUIRES="base/core"

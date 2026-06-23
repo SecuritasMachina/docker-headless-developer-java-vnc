@@ -1,0 +1,4 @@
+NAME="Node.js"
+CATEGORY=languages
+DESCRIPTION="Node.js LTS (NodeSource signed repo) with corepack-enabled yarn/pnpm"
+REQUIRES="base/core"

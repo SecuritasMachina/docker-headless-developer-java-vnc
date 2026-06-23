@@ -1,5 +1,12 @@
 Docker build container image for Headless Java Developer using VNC session
 
+> **New: composable multi-stack builder.** You can now assemble a desktop from
+> per-technology components (Java, Node, Python, Go, Rust, .NET, PHP, Ruby;
+> Eclipse, VSCodium, IntelliJ, PyCharm, NetBeans; MySQL, PostgreSQL, MongoDB,
+> Redis, …) instead of this single monolithic image. See **[STACKS.md](STACKS.md)**
+> and run `./build-stack.sh --list`.
+
+The classic monolithic image below is equivalent to the `java-enterprise` stack.
 Each Docker image is installed with the following components:
 
 * Desktop environment [**xfce**]

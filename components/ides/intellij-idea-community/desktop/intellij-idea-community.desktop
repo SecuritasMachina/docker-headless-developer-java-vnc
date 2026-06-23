@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IntelliJ IDEA Community
+GenericName=Java IDE
+Comment=JetBrains IntelliJ IDEA Community Edition
+Exec=/opt/idea/bin/idea.sh
+Icon=/opt/idea/bin/idea.svg
+Terminal=false
+StartupNotify=true
+Categories=Development;IDE;

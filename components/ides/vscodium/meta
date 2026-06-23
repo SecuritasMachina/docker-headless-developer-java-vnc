@@ -1,0 +1,4 @@
+NAME="VSCodium"
+CATEGORY=ides
+DESCRIPTION="VSCodium - the open-source (telemetry-free) build of VS Code (signed apt repo)"
+REQUIRES="desktop/xfce"
