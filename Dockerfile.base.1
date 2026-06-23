@@ -1,9 +1,8 @@
 # Headless Secure Ubuntu base Container
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
-MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
 
-LABEL io.k8s.description="Headless VNC Container with xfce window manager, OpenJDK 8, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox" \
+LABEL io.k8s.description="Headless VNC Container with xfce window manager, OpenJDK 17, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox" \
       io.k8s.display-name="Headless Enterprise Developer VNC Container based on xfce" \
       io.openshift.expose-services="6901:http,5901:xvnc" \
       io.openshift.tags="vnc, xfce" \
@@ -11,11 +10,14 @@ LABEL io.k8s.description="Headless VNC Container with xfce window manager, OpenJ
 
 ###Command line arguments
 #Developer tools:
-ARG TOMCAT_DOWNLOAD=https://downloads.apache.org/tomcat/tomcat-9/v9.0.36/bin/
-ARG TOMCAT_FLAVOR=apache-tomcat-9.0.36
-ARG MYSQL_FLAVOR=mysql-8.0.15
-ARG ECLIPSE_FLAVOR=eclipse-jee-2019-03-R-linux-gtk-x86_64
-ARG GRADLE_FLAVOR=gradle-5.0
+# NOTE: downloads.apache.org only keeps the CURRENT release; pin against archive.apache.org for reproducibility.
+ARG TOMCAT_DOWNLOAD=https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.119/bin
+ARG TOMCAT_FLAVOR=apache-tomcat-9.0.119
+ARG MYSQL_FLAVOR=mysql-8.0.46
+ARG MYSQL_GLIBC=glibc2.28
+ARG ECLIPSE_RELEASE=2026-03/R
+ARG ECLIPSE_FLAVOR=eclipse-jee-2026-03-R-linux-gtk-x86_64
+ARG GRADLE_FLAVOR=gradle-8.14
 ARG USER_PASSWORD=RANDOM_USER_PASSWORD
 #User to create in container
 ARG CONTAINER_USER=superstar
@@ -31,8 +33,10 @@ ENV GRADLE_FLAVOR $GRADLE_FLAVOR
 ENV TOMCAT_DOWNLOAD $TOMCAT_DOWNLOAD
 ENV TOMCAT_FLAVOR $TOMCAT_FLAVOR
 ENV MYSQL_FLAVOR $MYSQL_FLAVOR
+ENV MYSQL_GLIBC $MYSQL_GLIBC
 ENV CONTAINER_USER $CONTAINER_USER
 ENV CONTAINER_DIR_NAME $CONTAINER_DIR_NAME
+ENV ECLIPSE_RELEASE $ECLIPSE_RELEASE
 ENV ECLIPSE_FLAVOR $ECLIPSE_FLAVOR
 
 # Define working directory.
@@ -89,4 +93,7 @@ RUN export LC_ALL=en_US.UTF-8 &&\
 
 ### Install some common tools
 RUN $INST_SCRIPTS/commonTools.sh
+
+### Install Firefox (Mozilla signed APT repo, not the snap shim)
+RUN $INST_SCRIPTS/firefox.sh
 

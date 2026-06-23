@@ -4,16 +4,17 @@ Each Docker image is installed with the following components:
 
 * Desktop environment [**xfce**]
 
-* OpenJDK 8.0
-* MySQL 8.0.15
-* Tomcat 9.0.44
-* NPM 3.5.x 
+* OpenJDK 17 (LTS)
+* MySQL 8.0.46
+* Tomcat 9.0.119
+* Eclipse IDE for Enterprise Java (2026-03)
+* NPM
 * ClamAV
 * VNC-Server (default VNC port `5901`)
-* [**noVNC**](https://github.com/novnc/noVNC) - HTML5 VNC client (default http port `6901`)
+* [**noVNC**](https://github.com/novnc/noVNC) 1.7.0 - HTML5 VNC client (default http port `6901`)
 * Browsers:
-  * Mozilla Firefox
-  * Chromium
+  * Mozilla Firefox (Mozilla signed APT repo)
+  * Google Chrome (Google signed APT repo)
 
 ## Why?
 * [26% of firms suffered breaches in 2018 due to vulnerable open source components](https://www.scmagazineuk.com/26-firms-suffered-breaches-2018-due-vulnerable-open-source-components/article/1577856)

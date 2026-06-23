@@ -1,4 +1,4 @@
-export dVersion=2020-06-16-r1
+export dVersion=2026-06-23-r1
 
 export current_timestamp=$(date +%Y-%m-%d_%H.%M.%S)
 export log_dir="$HOME/logs/docker/base-xfce/$current_timestamp"

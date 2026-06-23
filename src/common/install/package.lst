@@ -1,5 +1,5 @@
 ##JDK
-openjdk-8-jdk-headless
+openjdk-17-jdk-headless
 #Security related
 clamav
 clamav-daemon
@@ -30,22 +30,18 @@ inotify-tools
 ##Dev tools
 gradle
 maven
-telnet
 curl
-#used for websockify/novnc
-python-numpy
+#used for websockify/novnc (Python 3; python-numpy / Python 2 is EOL)
+python3-numpy
 ##Source control
 mercurial
 subversion
 git
-cvs
 ##Browser
-#epiphany-browser
-firefox
-#Chrome
-chromium-browser
-chromium-browser-l10n
-chromium-codecs-ffmpeg
+# Firefox is installed from Mozilla's signed APT repo (see install/firefox.sh);
+# the Ubuntu 22.04 'firefox'/'chromium-browser' apt packages are snap shims
+# that do not work inside a container. Google Chrome is installed in the final
+# Dockerfile from Google's signed APT repo.
 ##Fonts
 ttf-wqy-zenhei
 ##NPM
