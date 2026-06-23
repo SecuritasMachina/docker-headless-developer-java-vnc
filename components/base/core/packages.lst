@@ -1,0 +1,22 @@
+# Core CLI + build prerequisites shared by every stack
+ca-certificates
+gnupg
+dirmngr
+apt-utils
+software-properties-common
+locales
+sudo
+acl
+wget
+curl
+unzip
+bzip2
+xz-utils
+vim
+nano
+less
+git
+rsync
+net-tools
+tar
+procps

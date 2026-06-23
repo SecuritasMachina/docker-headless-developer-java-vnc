@@ -1,0 +1,4 @@
+NAME="Base core"
+CATEGORY=base
+DESCRIPTION="Locale, CA certs, core CLI tools, and the non-root container user (superstar, uid 1500)"
+REQUIRES=""

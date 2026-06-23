@@ -1,0 +1,9 @@
+supervisor
+xfce4
+xfce4-terminal
+xterm
+gedit
+dbus-x11
+fonts-wqy-zenhei
+fonts-dejavu
+desktop-file-utils

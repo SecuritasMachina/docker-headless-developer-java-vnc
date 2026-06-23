@@ -1,0 +1,8 @@
+# TigerVNC + noVNC from Ubuntu's signed repositories (maintained & security
+# patched) rather than unverified upstream tarballs.
+tigervnc-standalone-server
+tigervnc-common
+tigervnc-tools
+novnc
+websockify
+python3-numpy
