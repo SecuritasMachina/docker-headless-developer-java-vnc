@@ -1,0 +1,4 @@
+NAME="SQLite"
+CATEGORY=databases
+DESCRIPTION="SQLite 3 CLI + development headers (libsqlite3-dev)"
+REQUIRES="base/core"

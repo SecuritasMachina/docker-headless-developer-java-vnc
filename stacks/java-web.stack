@@ -1,0 +1,11 @@
+# Minimal Java web desktop: Xfce + VNC + OpenJDK/Maven/Gradle.
+# A small, self-contained stack (also used to smoke-test the builder).
+STACK_NAME=java-web
+DESCRIPTION="Xfce/VNC desktop with OpenJDK 17+21, Maven and Gradle"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  desktop/xfce
+  desktop/vnc
+  languages/java
+"

@@ -1,0 +1,4 @@
+NAME="MongoDB"
+CATEGORY=databases
+DESCRIPTION="MongoDB Community Server + tools/shell via MongoDB's signed apt repo (not auto-started)"
+REQUIRES="base/core"

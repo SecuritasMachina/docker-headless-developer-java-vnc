@@ -1,0 +1,4 @@
+NAME="Java (OpenJDK)"
+CATEGORY=languages
+DESCRIPTION="OpenJDK 17 + 21 (LTS), Maven, and Gradle (verified binary)"
+REQUIRES="base/core"

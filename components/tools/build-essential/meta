@@ -1,0 +1,4 @@
+NAME="Build essentials"
+CATEGORY=tools
+DESCRIPTION="C/C++ build toolchain: build-essential, cmake, make, autoconf, pkg-config, ant"
+REQUIRES="base/core"

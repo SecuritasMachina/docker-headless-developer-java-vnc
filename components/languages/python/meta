@@ -1,0 +1,4 @@
+NAME="Python 3"
+CATEGORY=languages
+DESCRIPTION="Python 3 with pip, venv, dev headers, pipx, and build-essential"
+REQUIRES="base/core"

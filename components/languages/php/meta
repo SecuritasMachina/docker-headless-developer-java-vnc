@@ -1,0 +1,4 @@
+NAME="PHP"
+CATEGORY=languages
+DESCRIPTION="PHP CLI with common extensions and a verified Composer install"
+REQUIRES="base/core"

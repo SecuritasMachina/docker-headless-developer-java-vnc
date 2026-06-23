@@ -1,0 +1,4 @@
+NAME="Rust"
+CATEGORY=languages
+DESCRIPTION="Rust toolchain via rustup (system-wide under /opt/rust)"
+REQUIRES="base/core"

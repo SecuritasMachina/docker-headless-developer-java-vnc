@@ -1,0 +1,4 @@
+NAME="Firefox"
+CATEGORY=desktop
+DESCRIPTION="Mozilla Firefox web browser (from Mozilla's signed APT repo, not the snap shim)"
+REQUIRES="desktop/xfce"

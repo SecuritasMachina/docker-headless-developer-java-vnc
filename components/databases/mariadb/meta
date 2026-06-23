@@ -1,0 +1,4 @@
+NAME="MariaDB"
+CATEGORY=databases
+DESCRIPTION="MariaDB server + client (not auto-started). Do NOT combine with databases/mysql in the same stack - they provide conflicting packages."
+REQUIRES="base/core"

@@ -1,0 +1,4 @@
+NAME="Xfce desktop"
+CATEGORY=desktop
+DESCRIPTION="Lightweight Xfce4 desktop environment, terminal, and fonts"
+REQUIRES="base/core"

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=DBeaver Community
+GenericName=Database Manager
+Comment=Universal database GUI client
+Exec=dbeaver
+Icon=dbeaver
+Terminal=false
+Categories=Development;Database;
+StartupNotify=true

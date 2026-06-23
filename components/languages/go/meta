@@ -1,0 +1,4 @@
+NAME="Go"
+CATEGORY=languages
+DESCRIPTION="Go toolchain (latest stable, verified official tarball)"
+REQUIRES="base/core"

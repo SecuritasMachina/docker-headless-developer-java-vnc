@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse IDE
+GenericName=Java IDE
+Comment=Eclipse IDE for Enterprise Java and Web Developers
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+StartupNotify=false
+Categories=Development;IDE;

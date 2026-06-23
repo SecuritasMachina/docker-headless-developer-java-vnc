@@ -1,0 +1,4 @@
+NAME="nginx"
+CATEGORY=servers
+DESCRIPTION="nginx HTTP server and reverse proxy (apt)"
+REQUIRES="base/core"

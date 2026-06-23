@@ -1,0 +1,4 @@
+NAME="VNC + noVNC"
+CATEGORY=desktop
+DESCRIPTION="TigerVNC server and noVNC HTML5 web client (ports 5901 / 6901)"
+REQUIRES="desktop/xfce"

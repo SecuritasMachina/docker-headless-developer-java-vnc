@@ -1,0 +1,13 @@
+# .NET desktop: .NET SDK + VSCodium + PostgreSQL.
+STACK_NAME=dotnet
+DESCRIPTION=".NET SDK 8 (LTS), VSCodium, PostgreSQL, Firefox - on Xfce/VNC"
+BASE=ubuntu:22.04
+COMPONENTS="
+  base/core
+  desktop/xfce
+  desktop/vnc
+  desktop/firefox
+  languages/dotnet
+  databases/postgresql
+  ides/vscodium
+"

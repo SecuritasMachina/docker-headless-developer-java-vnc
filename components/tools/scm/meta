@@ -1,0 +1,4 @@
+NAME="Source-control clients"
+CATEGORY=tools
+DESCRIPTION="Extra source-control clients: Mercurial, Subversion, and Git LFS"
+REQUIRES="base/core"
