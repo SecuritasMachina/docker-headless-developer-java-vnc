@@ -4,9 +4,9 @@ set -e
 
 echo "Install Security Related tools"
 source $INST_SCRIPTS/commonFunctions.sh
-retry wget -O /var/lib/clamav/main.cvd http://database.clamav.net/main.cvd --quiet
-retry wget -O /var/lib/clamav/daily.cvd http://database.clamav.net/daily.cvd --quiet 
-retry wget -O /var/lib/clamav/bytecode.cvd http://database.clamav.net/bytecode.cvd --quiet
+retry wget -O /var/lib/clamav/main.cvd https://database.clamav.net/main.cvd --quiet
+retry wget -O /var/lib/clamav/daily.cvd https://database.clamav.net/daily.cvd --quiet
+retry wget -O /var/lib/clamav/bytecode.cvd https://database.clamav.net/bytecode.cvd --quiet
 
 # permission juggling
 chown -R clamav:clamav /var/lib/clamav

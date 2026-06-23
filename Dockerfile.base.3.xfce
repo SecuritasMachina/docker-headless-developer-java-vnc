@@ -1,8 +1,7 @@
-# Headless Secure Ubuntu VNC Container with xfce window manager, OpenJDK 8, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox
-FROM ackdev/secure_java_developer_desktop-base-devtools:2020-06-16-r1
+# Headless Secure Ubuntu VNC Container with xfce window manager, OpenJDK 17, Eclipse, Tomcat, MySQL, MySQL Workbench, Firefox
+FROM ackdev/secure_java_developer_desktop-base-devtools:2026-06-23-r1
 
 LABEL maintainer="Acknowledged Development Inc. help@ackdev.com"
-MAINTAINER Acknowledged Development Inc. "help@ackdev.com"
 
 ### Install custom fonts
 RUN $INST_SCRIPTS/install_custom_fonts.sh

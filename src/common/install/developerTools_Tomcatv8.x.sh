@@ -3,40 +3,33 @@
 set -e
 echo "Downloading Tomcat-$TOMCAT_FLAVOR"
 source $INST_SCRIPTS/commonFunctions.sh
-rm -f "$TOMCAT_FLAVOR.tar.gz"
+rm -f "$TOMCAT_FLAVOR.tar.gz" "$TOMCAT_FLAVOR.tar.gz.asc" "$TOMCAT_FLAVOR.tar.gz.sha512"
 retry wget "$TOMCAT_DOWNLOAD/$TOMCAT_FLAVOR.tar.gz" --quiet
 retry wget "$TOMCAT_DOWNLOAD/$TOMCAT_FLAVOR.tar.gz.asc" --quiet
-sha256=$(sha256sum -b $TOMCAT_FLAVOR.tar.gz)
-a=($(echo "$sha256" | tr ' ' '\n'))
-sha256toCheck="${a[0]}"
-#You have to be kidding - ERROR: cannot verify checker.apache.org's certificate
-result=$(wget -qO- https://checker.apache.org/sums/$sha256toCheck --no-check-certificate)
+# Apache publishes the official SHA-512 next to the artifact over HTTPS.
+# (The old checker.apache.org check used --no-check-certificate, which disabled
+#  TLS verification entirely - removed in favour of the signed checksum file.)
+retry wget "$TOMCAT_DOWNLOAD/$TOMCAT_FLAVOR.tar.gz.sha512" --quiet
 
-if [[ $result = *"$sha256toCheck"* ]]
-then
-	echo "SHA256 Check Succeeded"
-else
-	echo "!!! SHA256 Check Failed !!!"
-	#exit 1
-fi
+echo "Verifying SHA-512 checksum"
+sha512sum -c "$TOMCAT_FLAVOR.tar.gz.sha512"
 
-mkdir $HOME/.gnupg
+mkdir -p $HOME/.gnupg
 rm -f $HOME/.gnupg/dirmngr.conf
 echo "disable-ipv6" >> $HOME/.gnupg/dirmngr.conf
-retry gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 10C01C5A2F6059E7
+# Import the full Apache Tomcat KEYS file (covers all release managers) over HTTPS,
+# instead of trusting a single hard-coded key id fetched over plaintext hkp://.
+retry wget -qO- https://downloads.apache.org/tomcat/tomcat-9/KEYS | gpg --import
 
 signature=$(gpg --keyid-format long --verify "$TOMCAT_FLAVOR.tar.gz.asc" "$TOMCAT_FLAVOR.tar.gz" 2>&1)
 echo "$signature"
 mv "$TOMCAT_FLAVOR.tar.gz" $HOME/.dockerDevTools/archives
 mv "$TOMCAT_FLAVOR.tar.gz.asc" $HOME/.dockerDevTools/archives
 
-if [[ $signature = *"gpg: Good signature from"* && $signature = *"A9C5DF4D22E99998D9875A5110C01C5A2F6059E7"* ]]
+if [[ $signature = *"gpg: Good signature from"* ]]
 then
-	echo "!!! Signature Success !!!"
-	#TODO check file md5 signature wget https://checker.apache.org/sums/932d1b32bde9ea753cb017d73b92258e11cfb3f41a0df0a5263ee1ac67619259 --no-check-certificate #You have to be kidding me! 
-#Stage for install to mounted volume upon first user logon
+	echo "!!! Tomcat Signature Success !!!"
 else
 	echo "!!! Tomcat Signature Failed !!!"
-	#exit 1
+	exit 1
 fi
-
